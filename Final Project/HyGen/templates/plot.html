@@ -1,0 +1,59 @@
+<head>
+  <!-- Plotly.js -->
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+
+<body>
+
+  <div id="myDiv"><!-- Plotly chart will be drawn inside this DIV --></div>
+  <script>
+    var trace1 = {
+      x: [2020, 2021, 2022, 2023, 2024, 2025, 2026, 2027, 2028, 2029, 2030],
+      y: [1600, 1700, 3000, 7000, 13000, 21000, 32000, 42000, 50000, 75000,95000],
+      name: 'Hydrogen Vehicle',
+      marker: {color: 'rgb(55, 83, 109)'},
+      type: 'bar'
+    };
+
+    var trace2 = {
+      x: [2020, 2021, 2022, 2023, 2024, 2025, 2026, 2027, 2028, 2029, 2030],
+      y: [0, 1, 2, 8, 16, 28, 43, 57, 68, 103, 131],
+      name: 'Hydrogen Charging Station',
+      marker: {color: 'rgb(26, 118, 255)'},
+      type: 'bar'
+    };
+
+    var data = [trace1, trace2];
+
+    var layout = {
+      title: 'Projected demand for Hydrogen (Vehicle, charging station) - Seoul',
+      xaxis: {tickfont: {
+          size: 14,
+          color: 'rgb(107, 107, 107)'
+        }},
+      yaxis: {
+        title: '',
+        titlefont: {
+          size: 16,
+          color: 'rgb(107, 107, 107)'
+        },
+        tickfont: {
+          size: 14,
+          color: "rgb(107, 107, 107)"
+        }
+      },
+      legend: {
+        x: 0,
+        y: 1.0,
+        bgcolor: 'rgba(255, 255, 255, 0)',
+        bordercolor: 'rgba(255, 255, 255, 0)'
+      },
+      barmode: 'group',
+      bargap: 0.15,
+      bargroupgap: 0.1
+    };
+
+    Plotly.newPlot('myDiv', data, layout, {showSendToCloud:true});
+  </script>
+</body>
+

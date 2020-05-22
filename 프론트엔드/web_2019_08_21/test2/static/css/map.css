@@ -1,0 +1,155 @@
+*{
+  margin: 0;
+  padding: 0;
+  /*vertical-align: top;*/
+  /*border: 0;*/
+  /*outline: 0;*/
+}
+
+#container{
+  height: 740px;
+}
+
+nav{
+  height: 4rem;
+  background-color: #95999c;
+  /* position: fixed; */
+}
+
+.wrap{
+  height: 100%;
+  /*background: lightgray;*/
+  display: -webkit-box;
+  flex-direction: row;
+  /*flex-wrap: wrap;*/
+  /*justify-content: space-between;*/
+}
+
+.item{
+  background: rgba(255,0,0,0.5);
+  width: 20%;
+}
+
+/*.item:nth-child(odd){*/
+/*  !*background: rgba(255,255,0,0.5);*!*/
+/*  width: 25%;*/
+/*}*/
+
+
+/*div img{*/
+/*  width: 80%;*/
+/*  height: 200px;*/
+/*}*/
+
+.area {
+        position: absolute;
+        background: #0f6674;
+        border: 1px solid #c69500;
+        border-radius: 3px;
+        font-size: 12px;
+        top: -5px;
+        left: 15px;
+        padding:2px;
+    }
+
+.info {
+    font-size: 12px;
+    padding: 5px;
+}
+.info .title {
+    font-weight: bold;
+}
+
+
+/*slider*/
+
+.slideContainer{
+  width: 75%;
+  margin-top: 30px;
+}
+
+
+.slider{
+  width: 130%;
+  -webkit-appearance: none;
+  background: linear-gradient(90deg, rgb(214,214,214) 60%, rgb(214,214,214) 60%);
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+  border-radius: 12px;
+  transform: rotate(-90deg);
+  box-shadow: 0px 1px 10px 1px black;
+  margin-top: 200px;
+}
+
+.slider:hover{
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb{
+  -webkit-appearance: none;
+  appearance: none;
+  width: 40px;
+  height: 40px;
+  background: white;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb{
+  width: 40px;
+  height: 40px;
+  background: white;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+p{
+  margin-top: 50px;
+  opacity: 0.7;
+  margin-top: 150px;
+  margin-left: 23px;
+  color: white;
+}
+
+.slider::after{
+  content: '10000';
+  color: white;
+  font-size: 2rem;
+  position: absolute;
+  left: 76%;
+  top: -183%;
+  transform:rotate(90deg);
+}
+
+.slider::before{
+  content: '200';
+  color: white;
+  font-size: 1.5rem;
+  position: absolute;
+  left: 3%;
+  top: -116%;
+  transform:rotate(90deg);
+}
+
+/* map */
+
+.area {
+  position: absolute;
+  background: #c69500;
+  border: 1px solid #ffffff;
+  border-radius: 3px;
+  font-size: 12px;
+  top: -5px;
+  left: 15px;
+  padding:2px;
+  }
+
+.info {
+    font-size: 12px;
+    padding: 5px;
+}
+.info .title {
+    font-weight: bold;
+}

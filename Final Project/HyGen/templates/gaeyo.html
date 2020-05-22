@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="apple-touch-icon" sizes="76x76" href="/static/image/apple-icon.png">
+  <link rel="icon" type="image/png" href="/static/image/favicon.png">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>
+    HyGen개요
+  </title>
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+  <!-- CSS Files -->
+  <link href="/static/css/material-dashboard.css" rel="stylesheet" />
+  <!-- CSS Just for demo purpose, don't include it in your project -->
+  <link href="/static/demo/demo.css" rel="stylesheet" />
+
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="sidebar" data-color="purple" data-background-color="black" data-image="/static/image/sidebar-2.jpg">
+      <!--
+        Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+
+        Tip 2: you can also add an image using data-image tag
+    -->
+       <div class="logo"><a href="/" class="simple-text logo-normal">
+          <img src="/static/image/hygen.png" class="figure-img img-fluid rounded" width="200rem" height="180rem">
+        </a></div>
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="/analysis">
+              <i class="material-icons">dashboard</i>
+              <p>개요</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="/dash">
+              <i class="material-icons">library_books</i>
+              <p>데이터 소개</p>
+            </a>
+          </li>
+            <li class="nav-item ">
+            <a class="nav-link" href="/model">
+              <i class="material-icons">build</i>
+              <p>데이터 모델링</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="/map">
+              <i class="material-icons">location_ons</i>
+              <p>Maps</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="/user">
+              <i class="material-icons">person</i>
+              <p>git</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="main-panel">
+      <!-- Navbar -->
+        <div class="content">
+        <div class="container-fluid">
+          <div class="content">
+           <div class="container-fluid">
+    {#        <div class="container">#}
+               <h1><strong>HYGEN 개요</strong></h1>
+               <hr class="my-sm-1">
+                <h2><ins>개요 및 배경</ins></h2>
+                <div class="container-fluid">
+      <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top " id="navigation-example">
+        <div class="container-fluid">
+{#          <div class="navbar-wrapper">#}
+{#            <a class="navbar-brand" href="javascript:void(0)">HYGEN</a>#}
+{#          </div>#}
+          <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation" data-target="#navigation-example">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+          </button>
+        </div>
+
+      </nav>
+      <!-- End Navbar -->
+        <div class="row" style="padding:20px">
+              <div class="col">
+                <div class="card card-chart" style='height:300px'>
+                    <div class="card-body table-responsive">
+                        <h2><span class="badge badge-primary">이동식수소 충전소란?</span></h2>
+                      <h4>‘이동식 수소자동차 충전소’는 수소를 연료로 사용하는 자동차에 수소를 충전하기 위해 필요한 설비(필요한 경우 충전설비 제외 가능)가 차량에 장착돼 있어 이동이 가능한 것으로서 처리능력이 30m3 이상인 것(압축기 등 가압장치 없이 자압에 의해 충전하는 설비는 제외)을 말한다.
+                      </h4>
+                  </div>
+                </div>
+              </div>
+              <div class="col" style='height:300px'>
+                <div class="card card-chart" style='height:300px'>
+                  <div class="card-header">
+                    <img src="/static/image/gaeyo1.png" style='width:100%; height: 200px;'>
+                    <!-- <div class="ct-chart" id="completedTasksChart"></div> -->
+                  </div>
+                  <div class="card-body">
+                  </div>
+                </div>
+              </div>
+            </div>
+           <div class="row" style="padding:20px">
+              <div class="col">
+                <div class="card card-chart" style='height:300px'>
+                    <div class="card-body table-responsive">
+                        <h2><span class="badge-primary">분석 이렇게 했어요!</span></h2>
+                      <h4>서울 시내에 이동식 수소충전소를 설치한다고 했을 때, 서울 시내의 424개의 동별 데이터를 분석하여 빅데이터 기반의 최적입지를 추천하는데 있다. 수요를 예측하는데 사용한 변수는 미국 Regional Consumer Hydrogen Demand and Optimal Hydrogen Refueling Station Siting 논문에 의하면 가구소득수준, 가구수별 승용차수, 미세먼지 정도, 출퇴근 거리, 교육, 수소차등록대수 등과 같은 변수들이 수소차를 사는 고객을 나타낼 수 있는 유의미한 Attributes가 있고, 이를 바탕으로 동별_대학교 이상 교육 받은 인구수, 동별_친환경자동차수(하이브리드, 전기차, 수소차), 동별_사업체수, 동별_㎡당 매매평균가, 동별_가구수별_승용차수, 동별_수소차_대수. 동별_교통량 등 7개의 변수를 중첩분석하여 동별 수요를 예측하였다. 그 후 수요가 높은 주유소에서 개질기후보지를 뽑고, 주차장등을 이동식 수소충전소가 갈만한 후보지로 선정하였다. 그리고 나서 ward 군집분석을 통해 최종 노선을 2020년부터 2028년까지 5개로 나누어 분석결과를 도출했다.
+                      </h4>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card card-chart" style='height:300px'>
+                  <div class="card-header">
+                    <img src="/static/image/gaeyo5.jpg" style='width:100%; height: 250px;'>
+                    <!-- <div class="ct-chart" id="completedTasksChart"></div> -->
+                  </div>
+                  <div class="card-body">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row" style="padding:20px">
+               <div class="col">
+                 <div class="card card-chart" style='height:300px'>
+                     <div class="card-body table-responsive">
+                         <h2><span class="badge-primary">배경</span></h2>
+                       <h4>정부가 지난해 8월 혁신성장 전략투자 방향에서 ‘수소경제’를 인공지능과 데이터, 블록체인, 공유경제를 3대전략 투자 분야로 선정하였고, 세계적으로 수소 에너지 시장이 미래에 주요사업으로 주목받고있습니다. 국내에서도 2017년에 비해 2018년에만 수소차가 712대가 증가했고, 이러한 증가추세에 따라 정부도 수소 충전소를 추가 설치하려고 하고 있습니다. 하지만 수소차 충전소의 설치비용이 약 30억원이나 소요되므로 전기차 충전소에 비해 너무 비쌉니다. 이러한 비용이 수소인프라 확충에 방해가 되고, 이러한 인프라 부족이 소비자의 수소차구매에 방해가 되는 상황입니다.
+                       </h4>
+                   </div>
+                 </div>
+               </div>
+               <div class="col">
+                 <div class="card card-chart" style='height:300px'>
+                   <div class="card-header">
+                       <div style="border: 1px solid gold; float: left; width: 50%;">
+                           <img src="/static/image/gaeyo2.jpg" style='width:100%; height: 250px;'></div>
+                       <div style="border: 1px solid gold; float: right; width: 50%;">
+                       <img src="/static/image/gaeyo3.jpg" style='width:100%; height: 250px;'>
+                           </div>
+                     <!-- <div class="ct-chart" id="completedTasksChart"></div> -->
+                   </div>
+                   <div class="card-body">
+                   </div>
+                 </div>
+               </div>
+             </div>
+             <div class="row" style="padding:20px">
+                <div class="col">
+                  <div class="card card-chart" style='height:300px'>
+                      <div class="card-body table-responsive">
+                          <h2><span class="badge-primary">기대효과</span></h2>
+                          <h4>수소전기차들의 충전소 접근성이 높아지고 고정식 충전소에 비해 설치비용도 절감(30억 -> 10억원)될 것으로 기대된다. 이동식 수소 충전소 도입으로 수소경제사회의 기반을 구축한다.
+                          또한 우리의 방식대로 계산하면 2022년 기준 232.8억원 정도 소모되며 이는 기존 고정식 수소 충전소 비용인 327억원에 비해 100억원 이상 절감되는 것을 알 수 있다.</h4>
+
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card card-chart" style='height:300px'>
+                    <div class="card-header">
+                      <img src="/static/image/gaeyo4.png" style='width:100%; height: 100%;'>
+                      <!-- <div class="ct-chart" id="completedTasksChart"></div> -->
+                    </div>
+                    <div class="card-body">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+         </div>
+      </div>
+      <script>
+        const x = new Date().getFullYear();
+        let date = document.getElementById('date');
+        date.innerHTML = '&copy; ' + x + date.innerHTML;
+      </script>
+    </div>
+  </div>
+
+  <!--   Core JS Files   -->
+  <script src="/static/js/core/jquery.min.js"></script>
+  <script src="/static/js/core/popper.min.js"></script>
+  <script src="/static/js/core/bootstrap-material-design.min.js"></script>
+  <script src="https://unpkg.com/default-passive-events"></script>
+  <script src="/static/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <!--  Google Maps Plugin    -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+  <!-- Chartist JS -->
+  <script src="/static/js/plugins/chartist.min.js"></script>
+  <!--  Notifications Plugin    -->
+  <script src="/static/js/plugins/bootstrap-notify.js"></script>
+  <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="/static/js/material-dashboard.js?v=2.1.0"></script>
+  <!-- Material Dashboard DEMO methods, don't include it in your project! -->
+  <script src="/static/demo/demo.js"></script>
+  <script>
+    $(document).ready(function() {
+      $().ready(function() {
+        $sidebar = $('.sidebar');
+
+        $sidebar_img_container = $sidebar.find('.sidebar-background');
+
+        $full_page = $('.full-page');
+
+        $sidebar_responsive = $('body > .navbar-collapse');
+
+        window_width = $(window).width();
+
+        $('.fixed-plugin a').click(function(event) {
+          // Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
+          if ($(this).hasClass('switch-trigger')) {
+            if (event.stopPropagation) {
+              event.stopPropagation();
+            } else if (window.event) {
+              window.event.cancelBubble = true;
+            }
+          }
+        });
+
+        $('.fixed-plugin .active-color span').click(function() {
+          $full_page_background = $('.full-page-background');
+
+          $(this).siblings().removeClass('active');
+          $(this).addClass('active');
+
+          var new_color = $(this).data('color');
+
+          if ($sidebar.length != 0) {
+            $sidebar.attr('data-color', new_color);
+          }
+
+          if ($full_page.length != 0) {
+            $full_page.attr('filter-color', new_color);
+          }
+
+          if ($sidebar_responsive.length != 0) {
+            $sidebar_responsive.attr('data-color', new_color);
+          }
+        });
+
+        $('.fixed-plugin .background-color .badge').click(function() {
+          $(this).siblings().removeClass('active');
+          $(this).addClass('active');
+
+          var new_color = $(this).data('background-color');
+
+          if ($sidebar.length != 0) {
+            $sidebar.attr('data-background-color', new_color);
+          }
+        });
+
+        $('.fixed-plugin .img-holder').click(function() {
+          $full_page_background = $('.full-page-background');
+
+          $(this).parent('li').siblings().removeClass('active');
+          $(this).parent('li').addClass('active');
+
+
+          var new_image = $(this).find("img").attr('src');
+
+          if ($sidebar_img_container.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
+            $sidebar_img_container.fadeOut('fast', function() {
+              $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
+              $sidebar_img_container.fadeIn('fast');
+            });
+          }
+
+          if ($full_page_background.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
+            var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
+
+            $full_page_background.fadeOut('fast', function() {
+              $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
+              $full_page_background.fadeIn('fast');
+            });
+          }
+
+          if ($('.switch-sidebar-image input:checked').length == 0) {
+            var new_image = $('.fixed-plugin li.active .img-holder').find("img").attr('src');
+            var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
+
+            $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
+            $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
+          }
+
+          if ($sidebar_responsive.length != 0) {
+            $sidebar_responsive.css('background-image', 'url("' + new_image + '")');
+          }
+        });
+
+        $('.switch-sidebar-image input').change(function() {
+          $full_page_background = $('.full-page-background');
+
+          $input = $(this);
+
+          if ($input.is(':checked')) {
+            if ($sidebar_img_container.length != 0) {
+              $sidebar_img_container.fadeIn('fast');
+              $sidebar.attr('data-image', '#');
+            }
+
+            if ($full_page_background.length != 0) {
+              $full_page_background.fadeIn('fast');
+              $full_page.attr('data-image', '#');
+            }
+
+            background_image = true;
+          } else {
+            if ($sidebar_img_container.length != 0) {
+              $sidebar.removeAttr('data-image');
+              $sidebar_img_container.fadeOut('fast');
+            }
+
+            if ($full_page_background.length != 0) {
+              $full_page.removeAttr('data-image', '#');
+              $full_page_background.fadeOut('fast');
+            }
+
+            background_image = false;
+          }
+        });
+
+        $('.switch-sidebar-mini input').change(function() {
+          $body = $('body');
+
+          $input = $(this);
+
+          if (md.misc.sidebar_mini_active == true) {
+            $('body').removeClass('sidebar-mini');
+            md.misc.sidebar_mini_active = false;
+
+            $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar();
+
+          } else {
+
+            $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar('destroy');
+
+            setTimeout(function() {
+              $('body').addClass('sidebar-mini');
+
+              md.misc.sidebar_mini_active = true;
+            }, 300);
+          }
+
+          // we simulate the window Resize so the charts will get updated in realtime.
+          var simulateWindowResize = setInterval(function() {
+            window.dispatchEvent(new Event('resize'));
+          }, 180);
+
+          // we stop the simulation of Window Resize after the animations are completed
+          setTimeout(function() {
+            clearInterval(simulateWindowResize);
+          }, 1000);
+
+        });
+      });
+    });
+  </script>
+  <script>
+    $(document).ready(function() {
+      // Javascript method's body can be found in assets/js/demos.js
+      md.initDashboardPageCharts();
+
+    });
+  </script>
+</body>
+
+</html>

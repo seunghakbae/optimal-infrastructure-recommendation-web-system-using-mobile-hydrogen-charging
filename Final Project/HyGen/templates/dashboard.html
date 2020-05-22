@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="apple-touch-icon" sizes="76x76" href="/static/image/apple-icon.png">
+  <link rel="icon" type="image/png" href="/static/image/favicon.png">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>
+    HYGEN
+  </title>
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+  <!-- CSS Files -->
+  <link href="/static/css/material-dashboard.css?v=2.1.0" rel="stylesheet" />
+  <!-- CSS Just for demo purpose, don't include it in your project -->
+  <link href="/static/demo/demo.css" rel="stylesheet" />
+
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="sidebar" data-color="purple" data-background-color="black" data-image="/static/image/sidebar-2.jpg">
+      <!--
+        Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+
+        Tip 2: you can also add an image using data-image tag
+    -->
+       <div class="logo"><a href="#" class="simple-text logo-normal">
+          <img src="/static/image/hygen.png" class="figure-img img-fluid rounded" width="200rem" height="180rem">
+        </a></div>
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+           <li class="nav-item">
+            <a class="nav-link" href="/analysis">
+              <i class="material-icons">dashboard</i>
+              <p>개요</p>
+            </a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="./dash">
+              <i class="material-icons">library_books</i>
+              <p>데이터 소개</p>
+            </a>
+          </li>
+            <li class="nav-item ">
+            <a class="nav-link" href="/model">
+              <i class="material-icons">build</i>
+              <p>데이터 모델링</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="/map">
+              <i class="material-icons">location_ons</i>
+              <p>Maps</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="/user">
+              <i class="material-icons">person</i>
+              <p>git</p>
+            </a>
+          </li>
+
+
+        </ul>
+      </div>
+    </div>
+    <div class="main-panel">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top " id="navigation-example">
+        <div class="container-fluid">
+{#          <div class="navbar-wrapper">#}
+{#            <a class="navbar-brand" href="javascript:void(0)">HYGEN</a>#}
+{#          </div>#}
+          <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation" data-target="#navigation-example">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+          </button>
+      </nav>
+      <!-- End Navbar -->
+      <div class="content">
+        <div class="container-fluid">
+          <div class="content">
+           <div class="container-fluid">
+    {#        <div class="container">#}
+               <h1><strong>HYGEN Data 분석과정</strong></h1>
+               <hr class="my-sm-1">
+                <h2><ins>데이터 소개</ins></h2>
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-lg-6">
+                        <div class="container">
+                        <h5> 미국 수소 수요에 관한 논문에 의하면 <표1>과 같은 변수들이 수소차를
+                        사는 고객을 나타낼 수 있는 유의미한 변수들임을 알 수 있다.<br>
+                         다음 논문을 참고하여 아래와 같은 데이터를 선택하였다.
+                        </h5>
+                            <div class="card" style="width: 30rem; padding: 0rem 3rem">
+                              <div class="card-body" >
+                                <h3 class="card-title"><strong>Data</strong></h3>
+                                  <h5 class="card-subtitle mb-2 text-muted" style="height: 0.5rem">사용한 변수</h5>
+                                <p class="card-text"><h5>
+                                                        <a class="list-group-item list-group-item-action" style="height: 2rem" href="#list-item-1"><li>대졸자 인구수</li></a>
+                                                        <a class="list-group-item list-group-item-action" style="height: 2rem" href="#list-item-2"><li>친환경자동차수</li></a>
+                                                        <a class="list-group-item list-group-item-action" style="height: 2rem" href="#list-item-3"><li>사업체수</li></a>
+                                                        <a class="list-group-item list-group-item-action" style="height: 2rem" href="#list-item-4"><li>㎡당 매매평균가</li></a>
+                                                        <a class="list-group-item list-group-item-action" style="height: 2rem" href="#list-item-5"><li>가구수별_승용차수</li></a>
+                                                        <a class="list-group-item list-group-item-action" style="height: 2rem" href="#list-item-6"><li>수소차 대수</li></a>
+                                                        <a class="list-group-item list-group-item-action" style="height: 2rem" href="#list-item-7"><li>교통량</li></a></h5> </p>
+                                  <a href="http://127.0.0.1:5000/h" class="alert-link" target="_blank" ><h4><abbr title="attributes">Data Details</abbr></h4></a>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <h5><strong><표1> Regional Consumer Hydrogen Demand and Optimal Hydrogen Refueling Station Siting</strong><br>
+                        - 변수를 선택하는데 있어서 참고한 자료</h5>
+                        <figure class="figure">
+                          <img src="/static/image/변수.png" class="figure-img img-fluid rounded" width="1000px" height="800px">
+                          <figcaption class="figure-caption text-right">
+                                  (from the FY 2004 and 2005 work described in the Introduction above)
+                          </figcaption>
+                        </figure>
+    {#                </div>#}
+    {#              </div>#}
+    {#            </div>#}
+    {#        </div>#}
+           </div>
+          </div>
+
+            <hr class="my-sm-1">
+          <div data-spy="scroll" data-target="#list-example" data-offset="0" class="scrollspy-example">
+          <div class="row">
+             <div class="col">
+               <div class="card card-chart">
+                   <div class="card-body table-responsive" >
+                        <div class="card-body">
+                           <h4 id="list-item-1" class="card-title">대졸자 인구수</h4>
+                           <p class="card-category">서울시 동별 대졸자 인구수 (상위 Top5)</p>
+                            <li>데이터 수집: 서울시 교육정도별 인구(서율 열린 데이터 광장)</li>
+                         </div>
+                     <table class="table table-hover">
+                       <thead class="text-warning">
+                         <th>Top</th>
+                         <th>자치구</th>
+                         <th>동</th>
+                         <th>대졸자 인구수</th>
+                       </thead>
+                       <tbody>
+                         <tr>
+                           <td>1</td>
+                           <td>서초구</td>
+                           <td>양재1동</td>
+                           <td>54636</td>
+                         </tr>
+                         <tr>
+                           <td>2</td>
+                           <td>강남구</td>
+                           <td>세곡동</td>
+                           <td>53800</td>
+                         </tr>
+                         <tr>
+                           <td>3</td>
+                           <td>강남구</td>
+                           <td>대치2동</td>
+                           <td>47547</td>
+                         </tr>
+                         <tr>
+                           <td>4</td>
+                           <td>동작구</td>
+                           <td>상도1동</td>
+                           <td>46999</td>
+                         </tr>
+                         <tr>
+                           <td>5</td>
+                           <td>강남구</td>
+                           <td>역삼1동</td>
+                           <td>43638</td>
+                         </tr>
+                       </tbody>
+                     </table>
+                 </div>
+               </div>
+             </div>
+             <div class="col">
+               <div class="card card-chart">
+                 <div class="card-header">
+                        <iframe src="http://127.0.0.1:5000/a" width="800px" height="530px"></iframe>
+{#                   <img src="/static/image/sneakers.jpeg" style='width:100%; height: 200px;'>#}
+                   <!-- <div class="ct-chart" id="completedTasksChart"></div> -->
+                 </div>
+               </div>
+             </div>
+           </div>
+           <div class="row">
+             <div class="col">
+               <div class="card card-chart">
+                   <div class="card-body table-responsive">
+                       <div class="card-body">
+                        <h4 id="list-item-2" class="card-title">친환경 자동차 대수</h4>
+                        <p class="card-category">서울시 동별 친환경 자동차 대수(상위 Top5)</p>
+                          <li>데이터 수집: 등록 비율&구별 자동차 등록현황(서울 열린데이터 광장)</li>
+                          <li>수소차 대수 Index: 구별 친환경자동차 등록현황(하이브리드, 전기차, 수소차)* 동별 자동차 등록 비율</li>
+                       </div>
+                     <table class="table table-hover">
+                       <thead class="text-warning">
+                         <th>Top</th>
+                         <th>자치구</th>
+                         <th>동</th>
+                         <th>친환경 자동차 대수</th>
+                       </thead>
+                       <tbody>
+                         <tr>
+                          <td>1</td>
+                          <td>강남구</td>
+                          <td>세곡동</td>
+                          <td>1296.725646</td>
+                         </tr>
+                         <tr>
+                          <td>2</td>
+                          <td>강남구</td>
+                          <td>대치2동</td>
+                          <td>1146.009288</td>
+                         </tr>
+                         <tr>
+                          <td>3</td>
+                          <td>강남구</td>
+                          <td>역삼1동</td>
+                          <td>1051.790165</td>
+                         </tr>
+                         <tr>
+                          <td>4</td>
+                          <td>강남구</td>
+                          <td>역삼2동</td>
+                          <td>1050.677340</td>
+                         </tr>
+                         <tr>
+                          <td>5</td>
+                          <td>강남구</td>
+                          <td>도곡2동</td>
+                          <td>990.242421</td>
+                         </tr>
+                       </tbody>
+                     </table>
+                 </div>
+               </div>
+             </div>
+             <div class="col">
+               <div class="card card-chart">
+                 <div class="card-header">
+                      <iframe src="http://127.0.0.1:5000/e" width="800px" height="530px"></iframe>
+{#                       <img src="/static/image/sneakers.jpeg" style='width:100%; height: 200px;'>#}
+                   <!-- <div class="ct-chart" id="completedTasksChart"></div> -->
+                 </div>
+               </div>
+             </div>
+           </div>
+           <div class="row">
+             <div class="col">
+               <div class="card card-chart">
+                   <div class="card-body table-responsive">
+                       <div class="card-body">
+                        <h4 id="list-item-3" class="card-title">사업체수</h4>
+                        <p class="card-category">서울시 동별 총 사업체수(상위 Top5)</p>
+                          <li>데이터 수집: 산업별, 동별 사업체수 및 종사자 수(KOSIS국가통계포털)</li>
+                       </div>
+                     <table class="table table-hover">
+                       <thead class="text-warning">
+                         <tr>
+                          <th>Top</th>
+                          <th>자치구</th>
+                          <th>동</th>
+                          <th>합계_사업체수</th>
+                         </tr>
+                       </thead>
+                       <tbody>
+                         <tr>
+                           <td>1</td>
+                           <td>종로구</td>
+                           <td>종로1.2.3.4가동</td>
+                           <td>15851</td>
+                         </tr>
+                         <tr>
+                           <td>2</td>
+                           <td>강남구</td>
+                           <td>역삼1동</td>
+                           <td>15590</td>
+                         </tr>
+                         <tr>
+                           <td>3</td>
+                           <td>금천구</td>
+                           <td>가산동</td>
+                           <td>14339</td>
+                         </tr>
+                         <tr>
+                           <td>4</td>
+                           <td>중구</td>
+                           <td>신당동</td>
+                           <td>12073</td>
+                         </tr>
+                         <tr>
+                           <td>5</td>
+                           <td>마포구</td>
+                           <td>서교동</td>
+                           <td>9686</td>
+                         </tr>
+                        </tbody>
+                      </table>
+                 </div>
+               </div>
+             </div>
+             <div class="col">
+               <div class="card card-chart">
+                 <div class="card-header">
+                      <iframe src="http://127.0.0.1:5000/g" width="800px" height="530px"></iframe>
+{#                       <img src="/static/image/sneakers.jpeg" style='width:100%; height: 200px;'>#}
+                   <!-- <div class="ct-chart" id="completedTasksChart"></div> -->
+                 </div>
+               </div>
+             </div>
+           </div>
+           <div class="row">
+              <div class="col">
+                <div class="card card-chart">
+                    <div class="card-body table-responsive">
+                          <div class="card-body">
+                            <h4 id="list-item-4" class="card-title">아파트 ㎡당 매매평균가</h4>
+                            <p class="card-category">서울시 동별 아파트 ㎡당 매매평균가(상위 Top5)</p>
+                              <li>데이터 수집: KB주택가격동향(KB 부동산)</li>
+                          </div>
+                      <table class="table table-hover">
+                        <thead class="text-warning">
+                          <th>Top</th>
+                          <th>자치구</th>
+                          <th>동</th>
+                          <th>㎡당 매매평균가</th>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>1</td>
+                            <td>강남구</td>
+                            <td>개포동</td>
+                            <td>2538.0</td>
+                          </tr>
+                          <tr>
+                            <td>2</td>
+                            <td>서초구</td>
+                            <td>반포동</td>
+                            <td>2064.0</td>
+                          </tr>
+                          <tr>
+                            <td>3</td>
+                            <td>강남구</td>
+                            <td>압구정동</td>
+                            <td>1906.0</td>
+                          </tr>
+                          <tr>
+                            <td>4</td>
+                            <td>서초구</td>
+                            <td>잠원동</td>
+                            <td>1768.0</td>
+                          </tr>
+                          <tr>
+                            <td>5</td>
+                            <td>강남구</td>
+                            <td>대치동</td>
+                            <td>1672.0</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="card card-chart">
+                  <div class="card-header">
+                     <iframe src="http://127.0.0.1:5000/b" width="800px" height="530px"></iframe>
+                    <!-- <div class="ct-chart" id="completedTasksChart"></div> -->
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <div class="row">
+               <div class="col">
+                 <div class="card card-chart">
+                     <div class="card-body table-responsive">
+                         <div class="card-body">
+                            <h4 id="list-item-5" class="card-title">가구수별 승용차수</h4>
+                            <p class="card-category">서울시 동별 가구수별 승용차수(상위 Top5)</p>
+                              <li>데이터 수집: 동별 자동차 등록현황&동별 가구수(서울 열린데이터 광장)</li>
+                              <li>가구수별 승용차수 Index: 동별 자동차 등록현황 / 동별 가구수</li>
+                          </div>
+                       <table class="table table-hover">
+                         <thead class="text-warning">
+                           <th>Top</th>
+                           <th>자치구</th>
+                           <th>동</th>
+                           <th>가구수별 승용차수</th>
+                         </thead>
+                         <tbody>
+                           <tr>
+                             <td>1</td>
+                             <td>강남구</td>
+                             <td>대치1동</td>
+                             <td>0.603239</td>
+                           </tr>
+                           <tr>
+                             <td>2</td>
+                             <td>송파구</td>
+                             <td>위례동</td>
+                             <td>0.527316</td>
+                           </tr>
+                           <tr>
+                             <td>3</td>
+                             <td>서대문구</td>
+                             <td>남가좌1동</td>
+                             <td>0.461190</td>
+                           </tr>
+                           <tr>
+                             <td>4</td>
+                             <td>강남구</td>
+                             <td>일원본동</td>
+                             <td>0.452398</td>
+                           </tr>
+                           <tr>
+                             <td>5</td>
+                             <td>서초구</td>
+                             <td>서초4동</td>
+                             <td>0.443804</td>
+                           </tr>
+                         </tbody>
+                       </table>
+                   </div>
+                 </div>
+               </div>
+               <div class="col">
+                 <div class="card card-chart">
+                   <div class="card-header">
+                      <iframe src="http://127.0.0.1:5000/c" width="800px" height="530px"></iframe>
+                     <!-- <div class="ct-chart" id="completedTasksChart"></div> -->
+                   </div>
+                 </div>
+               </div>
+             </div>
+             <div class="row">
+                <div class="col">
+                  <div class="card card-chart">
+                      <div class="card-body table-responsive">
+                          <div class="card-body">
+                            <h4 id="list-item-6" class="card-title">수소차 대수</h4>
+                            <p class="card-category">서울시 동별 수소차 대수(상위 Top5)</p>
+                              <li>데이터 수집: 구별 수소차 대수&동동별 자동차 등록 비(서울 열린데이터 광장)</li>
+                              <li>수소차 대수 Index: 구별 수소차 대수 * 동별 자동차 등록 비율</li>
+                          </div>
+                        <table class="table table-hover">
+                          <thead class="text-warning">
+                             <th>Top</th>
+                             <th>자치구</th>
+                             <th>동</th>
+                             <th>수소차 대수</th>
+                           </thead>
+                           <tr>
+                              <td>1</td>
+                              <td>서초구</td>
+                              <td>양재1동</td>
+                              <td>3.033190</td>
+                            </tr>
+                            <tr>
+                              <td>2</td>
+                              <td>강남구</td>
+                              <td>역삼1동</td>
+                              <td>2.527688</td>
+                            </tr>
+                            <tr>
+                              <td>3</td>
+                              <td>서초구</td>
+                              <td>반포1동</td>
+                              <td>2.305706</td>
+                            </tr>
+                            <tr>
+                              <td>4</td>
+                              <td>서초구</td>
+                              <td>잠원동</td>
+                              <td>2.272209</td>
+                            </tr>
+                            <tr>
+                              <td>5</td>
+                              <td>서초구</td>
+                              <td>서초3동</td>
+                              <td>2.034033</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card card-chart">
+                    <div class="card-header">
+                       <iframe src="http://127.0.0.1:5000/d" width="800px" height="530px"></iframe>
+                      <!-- <div class="ct-chart" id="completedTasksChart"></div> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <div class="card card-chart">
+                      <div class="card-body table-responsive">
+                          <div class="card-body">
+                            <h4 id="list-item-7" class="card-title">교통량</h4>
+                            <p class="card-category">서울시 동별 택시 교통량(상위 Top5)</p>
+                              <li>데이터 수집: 서울시 택시운행 분석데이터 정보(서울 열린데이터 광장)</li>
+                          </div>
+                        <table class="table table-hover">
+                          <thead class="text-warning">
+                              <th>Top</th>
+                              <th>자치구</th>
+                              <th>동</th>
+                              <th>교통량(단위:만)</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>1</td>
+                              <td>동작구</td>
+                              <td>상도4동</td>
+                              <td>709259</td>
+                            </tr>
+                            <tr>
+                              <td>2</td>
+                              <td>동작구</td>
+                              <td>노량진2동</td>
+                              <td>703445</td>
+                            </tr>
+                            <tr>
+                              <td>3</td>
+                              <td>동작구</td>
+                              <td>흑석동</td>
+                              <td>702426</td>
+                            </tr>
+                            <tr>
+                              <td>4</td>
+                              <td>동작구</td>
+                              <td>상도2동</td>
+                              <td>702077</td>
+                            </tr>
+                            <tr>
+                              <td>5</td>
+                              <td>동작구</td>
+                              <td>대방동</td>
+                              <td>701469</td>
+                            </tr>
+                           </tbody>
+                        </table>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card card-chart">
+                    <div class="card-header">
+                       <iframe src="http://127.0.0.1:5000/f" width="800px" height="530px"></iframe>
+                      <!-- <div class="ct-chart" id="completedTasksChart"></div> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+         </div>
+         </div>
+      </div>
+      <script>
+        const x = new Date().getFullYear();
+        let date = document.getElementById('date');
+        date.innerHTML = '&copy; ' + x + date.innerHTML;
+      </script>
+    </div>
+  </div>
+
+  <!--   Core JS Files   -->
+  <script src="/static/js/core/jquery.min.js"></script>
+  <script src="/static/js/core/popper.min.js"></script>
+  <script src="/static/js/core/bootstrap-material-design.min.js"></script>
+  <script src="https://unpkg.com/default-passive-events"></script>
+  <script src="/static/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <!--  Google Maps Plugin    -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+  <!-- Chartist JS -->
+  <script src="/static/js/plugins/chartist.min.js"></script>
+  <!--  Notifications Plugin    -->
+  <script src="/static/js/plugins/bootstrap-notify.js"></script>
+  <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="/static/js/material-dashboard.js?v=2.1.0"></script>
+  <!-- Material Dashboard DEMO methods, don't include it in your project! -->
+  <script src="/static/demo/demo.js"></script>
+  <script>
+    $(document).ready(function() {
+      $().ready(function() {
+        $sidebar = $('.sidebar');
+
+        $sidebar_img_container = $sidebar.find('.sidebar-background');
+
+        $full_page = $('.full-page');
+
+        $sidebar_responsive = $('body > .navbar-collapse');
+
+        window_width = $(window).width();
+
+        $('.fixed-plugin a').click(function(event) {
+          // Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
+          if ($(this).hasClass('switch-trigger')) {
+            if (event.stopPropagation) {
+              event.stopPropagation();
+            } else if (window.event) {
+              window.event.cancelBubble = true;
+            }
+          }
+        });
+
+        $('.fixed-plugin .active-color span').click(function() {
+          $full_page_background = $('.full-page-background');
+
+          $(this).siblings().removeClass('active');
+          $(this).addClass('active');
+
+          var new_color = $(this).data('color');
+
+          if ($sidebar.length != 0) {
+            $sidebar.attr('data-color', new_color);
+          }
+
+          if ($full_page.length != 0) {
+            $full_page.attr('filter-color', new_color);
+          }
+
+          if ($sidebar_responsive.length != 0) {
+            $sidebar_responsive.attr('data-color', new_color);
+          }
+        });
+
+        $('.fixed-plugin .background-color .badge').click(function() {
+          $(this).siblings().removeClass('active');
+          $(this).addClass('active');
+
+          var new_color = $(this).data('background-color');
+
+          if ($sidebar.length != 0) {
+            $sidebar.attr('data-background-color', new_color);
+          }
+        });
+
+        $('.fixed-plugin .img-holder').click(function() {
+          $full_page_background = $('.full-page-background');
+
+          $(this).parent('li').siblings().removeClass('active');
+          $(this).parent('li').addClass('active');
+
+
+          var new_image = $(this).find("img").attr('src');
+
+          if ($sidebar_img_container.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
+            $sidebar_img_container.fadeOut('fast', function() {
+              $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
+              $sidebar_img_container.fadeIn('fast');
+            });
+          }
+
+          if ($full_page_background.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
+            var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
+
+            $full_page_background.fadeOut('fast', function() {
+              $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
+              $full_page_background.fadeIn('fast');
+            });
+          }
+
+          if ($('.switch-sidebar-image input:checked').length == 0) {
+            var new_image = $('.fixed-plugin li.active .img-holder').find("img").attr('src');
+            var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
+
+            $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
+            $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
+          }
+
+          if ($sidebar_responsive.length != 0) {
+            $sidebar_responsive.css('background-image', 'url("' + new_image + '")');
+          }
+        });
+
+        $('.switch-sidebar-image input').change(function() {
+          $full_page_background = $('.full-page-background');
+
+          $input = $(this);
+
+          if ($input.is(':checked')) {
+            if ($sidebar_img_container.length != 0) {
+              $sidebar_img_container.fadeIn('fast');
+              $sidebar.attr('data-image', '#');
+            }
+
+            if ($full_page_background.length != 0) {
+              $full_page_background.fadeIn('fast');
+              $full_page.attr('data-image', '#');
+            }
+
+            background_image = true;
+          } else {
+            if ($sidebar_img_container.length != 0) {
+              $sidebar.removeAttr('data-image');
+              $sidebar_img_container.fadeOut('fast');
+            }
+
+            if ($full_page_background.length != 0) {
+              $full_page.removeAttr('data-image', '#');
+              $full_page_background.fadeOut('fast');
+            }
+
+            background_image = false;
+          }
+        });
+
+        $('.switch-sidebar-mini input').change(function() {
+          $body = $('body');
+
+          $input = $(this);
+
+          if (md.misc.sidebar_mini_active == true) {
+            $('body').removeClass('sidebar-mini');
+            md.misc.sidebar_mini_active = false;
+
+            $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar();
+
+          } else {
+
+            $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar('destroy');
+
+            setTimeout(function() {
+              $('body').addClass('sidebar-mini');
+
+              md.misc.sidebar_mini_active = true;
+            }, 300);
+          }
+
+          // we simulate the window Resize so the charts will get updated in realtime.
+          var simulateWindowResize = setInterval(function() {
+            window.dispatchEvent(new Event('resize'));
+          }, 180);
+
+          // we stop the simulation of Window Resize after the animations are completed
+          setTimeout(function() {
+            clearInterval(simulateWindowResize);
+          }, 1000);
+
+        });
+      });
+    });
+  </script>
+  <script>
+    $(document).ready(function() {
+      // Javascript method's body can be found in assets/js/demos.js
+      md.initDashboardPageCharts();
+
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="apple-touch-icon" sizes="76x76" href="/static/image/apple-icon.png">
+  <link rel="icon" type="image/png" href="/static/image/favicon.png">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+  <title>
+    HyGen Data 분석 과정
+  </title>
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+  <!-- CSS Files -->
+  <link href="/static/css/material-dashboard.css" rel="stylesheet" />
+  <!-- CSS Just for demo purpose, don't include it in your project -->
+  <link href="/static/demo/demo.css" rel="stylesheet" />
+
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="sidebar" data-color="purple" data-background-color="black" data-image="/static/image/sidebar-2.jpg">
+      <!--
+        Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+
+        Tip 2: you can also add an image using data-image tag
+    -->
+       <div class="logo"><a href="#" class="simple-text logo-normal">
+          <img src="/static/image/hygen.png" class="figure-img img-fluid rounded" width="200rem" height="180rem">
+        </a></div>
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" href="/analysis">
+              <i class="material-icons">dashboard</i>
+              <p>개요</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="/dash">
+              <i class="material-icons">library_books</i>
+              <p>데이터 소개</p>
+            </a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/model">
+              <i class="material-icons">build</i>
+              <p>데이터 모델링</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="/map">
+              <i class="material-icons">location_ons</i>
+              <p>Maps</p>
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="/user">
+              <i class="material-icons">person</i>
+              <p>git</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="main-panel">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top " id="navigation-example">
+        <div class="container-fluid">
+{#          <div class="navbar-wrapper">#}
+{#            <a class="navbar-brand" href="javascript:void(0)">HYGEN</a>#}
+{#          </div>#}
+          <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation" data-target="#navigation-example">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+          </button>
+      </nav>
+      <!-- End Navbar -->
+      <div class="content">
+        <div class="container-fluid">
+          <div class="content">
+           <div class="container-fluid">
+    {#        <div class="container">#}
+               <h1><strong>HYGEN Data 분석 과정</strong></h1>
+               <hr class="my-sm-1">
+                <h2><ins>데이터 모델링</ins></h2>
+                               <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-lg-6">
+                        <div class="container">
+                        <h5> 데이터를 수집하여 다음과 같은 모델링 기법으로 분석을 하였다.
+                            그 결과 중첩분석한 결과가 정확도 측면에서 가장 잘 나왔기에 수소 충전소 수요 예측에 있어서 중첩분석 모델링을 이용하였다.
+                            <br><br>
+                            <strong>[모델링 성능분석]</strong><br>
+                            현재 정부에서 정한 수소 충전소가 세워질 예정인 지역과 아닌 지역의 등급 비율을 비교
+
+                        </h5>
+                            <div class="card" style="width: 30rem; padding: 0rem 3rem">
+                              <div class="card-body" >
+                                <h3 class="card-title"><strong>Modeling</strong></h3>
+                                  <h5 class="card-subtitle mb-2 text-muted" style="height: 0.5rem">사용한 모델</h5>
+                                <p class="card-text"><h5>
+                                                            <a class="list-group-item list-group-item-action" style="height: 2rem" target="_blank" href="http://resources.esri.com/help/9.3/arcgisdesktop/com/gp_toolref/geoprocessing/overlay_analysis.htm"><li>중첩분석(Overlay Analysis)</li></a>
+                                                            <a class="list-group-item list-group-item-action" style="height: 2rem" target="_blank" href="https://rpubs.com/cyobero/pca-clustering"><li>PCA 군집분석</li></a>
+                                                            <a class="list-group-item list-group-item-action" style="height: 2rem" target="_blank" href="https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm"><li>KNN</li></a>
+                                    <figcaption class="figure-caption">
+                                         <br> 모델링 클릭시 설명 자료 팝업
+                                  </figcaption> <br>
+                                  <div class="alert alert-danger" role="alert">
+                                  <strong>"중첩분석 모델" 성능이 가장 좋다.</strong>
+                                  </div>
+                              </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col">
+
+                        <figure class="figure">
+                          <img src="/static/image/성능.png" class="figure-img img-fluid rounded" width="1000px" height="800px">
+                        </figure>
+    {#                </div>#}
+    {#              </div>#}
+    {#            </div>#}
+    {#        </div>#}
+           </div>
+          </div>
+        <div class="container-fluid">
+             <div class="card border-light mb-3" style="padding: 0rem">
+                 <div class="card-header h3"><p><strong>중첩분석을 이용한 수소 수요 예측</strong></p></div>
+                <div class="card-body">
+                 <div class="container-fluid">
+                   {% import "plot.html" as plot %}
+                    {{ plot }}
+                      <div class="alert alert-info text-center" role="alert">
+                          <a href="http://www.eftoday.co.kr/detail.php?number=2860&thread=22r07" target="_blank" class="alert-link"><u>"서울시 수소차 보급 확대 계획"</u></a> 자료를 근거로<br>
+                          2020년부터 2030년까지 수소차 대수와<br> 그에 따른 필요한 개질기 수를 예측하였다.
+
+                      </div>
+                 </div>
+                    <br>
+                    <hr class="my-sm-1">
+                 <div class="card-body" style="padding: 0rem 0rem">
+                  <div class="card-header h3"><p><strong>서울시 동별 수소 수요 예측</strong></p></div>
+                  <div class="row">
+                    <div class="col; text-center" style="width: 20%;">
+                        <h4><span class="badge badge-light">2020년</span></h4>
+                      <img src="/static/image/2020.png" style='width:100%; height: 270px;'>
+                    </div>
+                    <div class="col; text-center" style="width: 20%;">
+                      <h4><span class="badge badge-light">2022년</span></h4>
+                      <img src="/static/image/2022.png" style='width: 100%; height: 270px;'>
+                    </div>
+                    <div class="col; text-center" style="width: 20%;">
+                      <h4><span class="badge badge-light">2024년</span></h4>
+                      <img src="/static/image/2024.png"style='width:100%; height: 270px;'>
+                    </div>
+                    <div class="col; text-center" style="width: 20%;">
+                      <h4><span class="badge badge-light">2026년</span></h4>
+                      <img src="/static/image/2026.png" style='width:100%; height: 270px;'>
+                    </div>
+                      <div class="col; text-center" style="width: 20%;">
+                      <h4><span class="badge badge-light">2028년</span></h4>
+                      <img src="/static/image/2028.png" style='width:100%; height: 270px;'>
+                </div>
+                </div>
+                 </div>
+                 </div>
+              </div>
+          </div>
+            <hr class="my-sm-1">
+{#          <div data-spy="scroll" data-target="#list-example" data-offset="0" class="scrollspy-example">#}
+          <div class="row">
+             <div class="col">
+               <div class="card card-chart">
+                   <div class="card-body table-responsive" >
+                        <div class="card-body">
+                           <h3 id="list-item-1" class="card-title">수소충전소 개수 예측</h3><br>
+                           <h5 class="card-category" style="color: #0a6ebd">1년동안 필요한 수소량 구하는 방법</h5>
+                            <li>수소차는 1대당 연간 약 200kg의 수소를 사용한다. (약 1.5만 km 주행한다고 가정)</li>
+                            <li>수소차가 몇 대 있는 지에 따라 1년동안 필요한 수소의 양이 계산된다. 예를 들어, 현재 한국에 총 천대의 수소차가 있다면, 200kg * 1000을 하면 200000kg 혹은 200ton이 필요하다.
+                            이를 통해 1년에 필요한 수소량을 구할 수 있다.
+                            </li>
+                            <br>
+                            <hr class="my-sm-1">
+                            <br>
+                           <h5 class="card-category" style="color: #0a6ebd">수소 충전소 종류</h5>
+                             <li>OFF-SITE</li>
+                             <li>ON-SITE</li>
+                            <br>
+                            <hr class="my-sm-1">
+                            <br>
+                           <h5 class="card-category" style="color: #0a6ebd">ON-SITE & 이동식 수소 충전소</h5>
+                             <li>ON-SITE</li>
+                                <ul>
+                                    <li>개질기를 통해 하루에 약 480KG을 생산한다. 그리고 일년에 공휴일과 일요일을 제외한 297일정도 수소를 생산한다. 그러면, 1개의 ON-SITE 충전소는 약 1년에
+                                    480KG * 297 = 142560kg = 142.560ton/year
+                                    정도 사용한다.
+                                    </li>
+                                </ul>
+                             <li>이동식 수소충전소</li>
+                                <ul>
+                                    <li>하루에 약 150KG을 사용한다. 그러면 일년에 약
+                                    150KG * 297 = 44520kg = 44.520ton/year
+                                    정도 사용한다.
+                                    그러므로, 한 개의 ON-SITE충전소는 자체적으로 약 160KG을 그 자리에서 판매하고, 이동식수소충전소는 약 150KG을 2번씩 충전하여 판매를 한다.
+                                    </li>
+                                </ul>
+                             <li>비용</li>
+                                <ul>
+                                    <li>(운송비용 + 연료비) : kg당 약 4천원 </li>
+                                    <li> 480 * 4000 = 192만원 * 297 = 570,240,000원 </li>
+                                    <li>유류비 : a </li>
+                                </ul>
+                            <div class="alert alert-success" role="alert" STYLE="height: 7.7rem">
+                              <li>총비용</li>
+                                <ul>
+                                    <li>20억(개질기) + 12.5억(설치비용) + 20억(이동식수소충전소 2개) + 5억7천만원 = 52.5억원 + 5억 7천만원 + a = 58.2억원 </li>
+                                    <li> 1kg당 비용: 58.2억원 / 142560kg = 40824.916원</li>
+                                    <li> 142560kg / 200kg = 712.8대 커버가능 </li></ul>
+                            </div>
+                            <br>
+                            <hr class="my-sm-1">
+                            <br>
+                            <h5 class="card-category" style="color: #0a6ebd">OFF-SITE</h5>
+                             <li>OFF-SITE </li>
+                                <ul>
+                                    <li>충전소의 경우 하루에 약 160KG을 사용한다. 그리고 일년에 약 297일정도 판매를 한다. 그러면 1개의 OFF-SITE 충전소는 약 1년에
+                                    160KG * 297 = 47520kg = 47.520ton/year
+                                    정도를 사용한다.
+                                    </li>
+                                </ul>
+                             <li>비용</li>
+                                <ul>
+                                    <li>(운송비용 + 연료비) : kg당 약 7천원~9천원(서울은 더 비쌈) 약 1만원
+                                    </li>
+                                    <li>160kg * 10000원 = 160만원 * 297 = 475,200,000원/year </li>
+                                    <li><a href="http://www.gasnews.com/news/articleView.html?idxno=85647" target="_blank" class="alert-link"><u>출처</u></a>  </li>
+                                </ul>
+                            <div class="alert alert-success" role="alert" STYLE="height: 7.7rem">
+                              <li>총비용</li>
+                                <ul>
+                                    <li>28억(설치비용) + 4억7천만(운송비용 + 연료비) = 32억7천만원 </li>
+                                    <li> 1kg당 비용 : 32억7천만원 / 57520kg = 48678.72원</li>
+                                    <li> 57520kg / 200kg = 287.6대 커버가능 </li></ul>
+                            </div>
+                            <br>
+                            <hr class="my-sm-1">
+                            <br>
+                           <h5 class="card-category" style="color: #0a6ebd">수소충전소 개수 구하는 법</h5>
+                             <li>일년에 필요한 수소의 양은 200KG * 수소차량 대수이다.</li>
+                             <li>현재 존재하는 수소충전소가 사용하는 양을 뺸다. 그런 후, 한 개의 개질기가 일년동안 사용하는 양으로 나눈다. </li>
+                             <li>개질기의 대수 = ((200KG * 수소차 대수) – (일년동안 사용하는 양 = 190,080KG)) / 142560KG</li>
+                             <li>개질기에서 약 4곳의 후보지가 필요</li>
+                             <li>후보지 : 4 * 개질기 대수
+                             </li>
+                            <br>
+                            <hr class="my-sm-1">
+                            <br>
+                             <div class="alert alert-success" role="alert" STYLE="height: 17rem">
+                              <li>예시 1) 2022년까지 필요한 충전소 개수</li>
+                                <ul>
+                                    <li>x = 3000개</li>
+                                    <li>3000 * 200kg => 600000kg = 600ton / year</li>
+                                    <li> 600000kg - 190080KG(현재 존재하는 수소충전소에서 사용되는 충전량) = 409,920kg </li>
+                                 <br>
+                                    <li>1번 방식 : 409,920kg / 57520kg = 7.1265개 수소 충전소</li>
+                                    <li>2번 방식 : 409,920kg / 142560kg = 2.875개 hybrid형 수소충전소</li>
+                                 <br>
+                                </ul>
+                              <li>총비용 비교</li>
+                                 <ul>
+                                    <li>1번 방식 비용  : 8개 x 32억 7천만원 = 327억원</li>
+                                    <li>2번 방식 비용  : 3개 x 58.2억 = 232.8억</li></ul>
+                            </div>
+                        </div>
+                   </div>
+               </div>
+             </div>
+        <div class="container-fluid">
+            <div class="row">
+               <div class="col">
+                  <div class="card card-chart" style="height: 400px">
+                      <div class="card-body table-responsive">
+                          <div class="card-body">
+                            <h3 id="list-item-1" class="card-title" style="color: #0a6ebd">개질기 입지 추천</h3>
+                            <p class="card-category">서울시 lpg 주유소에 개질기를 설치한다고 가정</p><br>
+                              <li>수소 충전소가 이미 있는 동은 제외</li>
+                              <li>중첩분석 8등급 이상인 주유소만 가져오기</li>
+                              <li>개질기 간의 거리를 최단 연결법(군집A와 군집B에 속하는 데이터중 가장 가까운 데이터들의 거리로 군집간의 거리로 정의)으로 Hierarchical Clustering(계층적 군집분석)을 하여 군집간 응집도 최대화하고 군집간 분리도를 최대화하여 수요에 맞는 인프라 조성을 할 수 있도록 함</li>
+                          </div>
+                      </div>
+                  </div>
+               </div>
+               <div class="col">
+                  <div class="card card-chart" style="height: 400px">
+                    <div class="card-header text-center">
+                       <img src="/static/image/single.png"style='width:500px; height: 380px;'>
+                      <!-- <div class="ct-chart" id="completedTasksChart"></div> -->
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div class="row">
+               <div class="col">
+                  <div class="card card-chart" style="height: 400px">
+                      <div class="card-body table-responsive">
+                          <div class="card-body">
+                            <h3 id="list-item-1" class="card-title" style="color: #0a6ebd">이동식 충전소 입지 추천</h3>
+                            <p class="card-category">서울시 주차장에 이동식 충전소를 배치한다고 가정</p><br>
+                              <li>수소 충전소가 이미 있는 동은 제외</li>
+                              <li>수소 개질기가 설치된 동은 제외</li>
+                              <li>중첩분석 8등급 이상인 주유소만 가져오기</li>
+                              <li>개질기와 주차장의 거리를 평균 연결법(클러스터 포인트 사이의 평균 거리가 가장 짧은 두 클러스터를 합침)으로 Hierarchical Clustering(계층적 군집분석)을 하여 개질기와 평균 거리가 짧은 주차장을 찾아 수요 높은 곳을 고루고루 군집되어 있는 애들을 뽑도록 함</li>
+                          </div>
+                      </div>
+                  </div>
+               </div>
+               <div class="col">
+                  <div class="card card-chart" style="height: 400px">
+                    <div class="card-header text-center">
+                       <img src="/static/image/average.png"style='width:500px; height: 380px;'>
+                      <!-- <div class="ct-chart" id="completedTasksChart"></div> -->
+                    </div>
+                  </div>
+              </div>
+             </div>
+             <div class="row">
+               <div class="col">
+                  <div class="card card-chart" style="height: 400px">
+                      <div class="card-body table-responsive">
+                          <div class="card-body">
+                            <h3 id="list-item-1" class="card-title" style="color: #0a6ebd">개질기와 이동식 충전소 노선 추천</h3>
+                            <p class="card-category">서울시 개질기 한개당 4개의 이동식 충전소(주차장) 노선</p><br>
+                              <li>뽑혀진 주차장들 중에 가까운 거리에 있는 애들을 2개씩 연결</li>
+                              <li>2개씩 연결된 주차장과 개질기 간의 거리를 구하여서 ward 군집분석을 통하여 비교적 크기가 비슷한 군집을 형성</li>
+                                <ul>
+                                    <li> ward : 기본값인 ward 연결은 모든 클러스터 내의 분산을 가장 작게 증가시키는 두 클러스터를 합친다. 그래서 크기가 비교적 비슷한 클러스터 형성</li>
+                                </ul>
+                              <li>주차장과 개질기가 같은 그룹에 있것을 가까운 순서대로 연결</li>
+                          </div>
+                      </div>
+                  </div>
+               </div>
+               <div class="col">
+                  <div class="card card-chart" style="height: 400px">
+                    <div class="card-header text-center">
+                       <img src="/static/image/line.png"style='width:500px; height: 380px;'>
+                      <!-- <div class="ct-chart" id="completedTasksChart"></div> -->
+                    </div>
+                  </div>
+              </div>
+             </div>
+            </div>
+         </div>
+         </div>
+      </div>
+          </div>
+        </div>
+      </div>
+    </div>
+      <script>
+        const x = new Date().getFullYear();
+        let date = document.getElementById('date');
+        date.innerHTML = '&copy; ' + x + date.innerHTML;
+      </script>
+    </div>
+  </div>
+
+  <!--   Core JS Files   -->
+  <script src="/static/js/core/jquery.min.js"></script>
+  <script src="/static/js/core/popper.min.js"></script>
+  <script src="/static/js/core/bootstrap-material-design.min.js"></script>
+  <script src="https://unpkg.com/default-passive-events"></script>
+  <script src="/static/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+  <!-- Place this tag in your head or just before your close body tag. -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <!--  Google Maps Plugin    -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+  <!-- Chartist JS -->
+  <script src="/static/js/plugins/chartist.min.js"></script>
+  <!--  Notifications Plugin    -->
+  <script src="/static/js/plugins/bootstrap-notify.js"></script>
+  <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="/static/js/material-dashboard.js?v=2.1.0"></script>
+  <!-- Material Dashboard DEMO methods, don't include it in your project! -->
+  <script src="/static/demo/demo.js"></script>
+  <script>
+    $(document).ready(function() {
+      $().ready(function() {
+        $sidebar = $('.sidebar');
+
+        $sidebar_img_container = $sidebar.find('.sidebar-background');
+
+        $full_page = $('.full-page');
+
+        $sidebar_responsive = $('body > .navbar-collapse');
+
+        window_width = $(window).width();
+
+        $('.fixed-plugin a').click(function(event) {
+          // Alex if we click on switch, stop propagation of the event, so the dropdown will not be hide, otherwise we set the  section active
+          if ($(this).hasClass('switch-trigger')) {
+            if (event.stopPropagation) {
+              event.stopPropagation();
+            } else if (window.event) {
+              window.event.cancelBubble = true;
+            }
+          }
+        });
+
+        $('.fixed-plugin .active-color span').click(function() {
+          $full_page_background = $('.full-page-background');
+
+          $(this).siblings().removeClass('active');
+          $(this).addClass('active');
+
+          var new_color = $(this).data('color');
+
+          if ($sidebar.length != 0) {
+            $sidebar.attr('data-color', new_color);
+          }
+
+          if ($full_page.length != 0) {
+            $full_page.attr('filter-color', new_color);
+          }
+
+          if ($sidebar_responsive.length != 0) {
+            $sidebar_responsive.attr('data-color', new_color);
+          }
+        });
+
+        $('.fixed-plugin .background-color .badge').click(function() {
+          $(this).siblings().removeClass('active');
+          $(this).addClass('active');
+
+          var new_color = $(this).data('background-color');
+
+          if ($sidebar.length != 0) {
+            $sidebar.attr('data-background-color', new_color);
+          }
+        });
+
+        $('.fixed-plugin .img-holder').click(function() {
+          $full_page_background = $('.full-page-background');
+
+          $(this).parent('li').siblings().removeClass('active');
+          $(this).parent('li').addClass('active');
+
+
+          var new_image = $(this).find("img").attr('src');
+
+          if ($sidebar_img_container.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
+            $sidebar_img_container.fadeOut('fast', function() {
+              $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
+              $sidebar_img_container.fadeIn('fast');
+            });
+          }
+
+          if ($full_page_background.length != 0 && $('.switch-sidebar-image input:checked').length != 0) {
+            var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
+
+            $full_page_background.fadeOut('fast', function() {
+              $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
+              $full_page_background.fadeIn('fast');
+            });
+          }
+
+          if ($('.switch-sidebar-image input:checked').length == 0) {
+            var new_image = $('.fixed-plugin li.active .img-holder').find("img").attr('src');
+            var new_image_full_page = $('.fixed-plugin li.active .img-holder').find('img').data('src');
+
+            $sidebar_img_container.css('background-image', 'url("' + new_image + '")');
+            $full_page_background.css('background-image', 'url("' + new_image_full_page + '")');
+          }
+
+          if ($sidebar_responsive.length != 0) {
+            $sidebar_responsive.css('background-image', 'url("' + new_image + '")');
+          }
+        });
+
+        $('.switch-sidebar-image input').change(function() {
+          $full_page_background = $('.full-page-background');
+
+          $input = $(this);
+
+          if ($input.is(':checked')) {
+            if ($sidebar_img_container.length != 0) {
+              $sidebar_img_container.fadeIn('fast');
+              $sidebar.attr('data-image', '#');
+            }
+
+            if ($full_page_background.length != 0) {
+              $full_page_background.fadeIn('fast');
+              $full_page.attr('data-image', '#');
+            }
+
+            background_image = true;
+          } else {
+            if ($sidebar_img_container.length != 0) {
+              $sidebar.removeAttr('data-image');
+              $sidebar_img_container.fadeOut('fast');
+            }
+
+            if ($full_page_background.length != 0) {
+              $full_page.removeAttr('data-image', '#');
+              $full_page_background.fadeOut('fast');
+            }
+
+            background_image = false;
+          }
+        });
+
+        $('.switch-sidebar-mini input').change(function() {
+          $body = $('body');
+
+          $input = $(this);
+
+          if (md.misc.sidebar_mini_active == true) {
+            $('body').removeClass('sidebar-mini');
+            md.misc.sidebar_mini_active = false;
+
+            $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar();
+
+          } else {
+
+            $('.sidebar .sidebar-wrapper, .main-panel').perfectScrollbar('destroy');
+
+            setTimeout(function() {
+              $('body').addClass('sidebar-mini');
+
+              md.misc.sidebar_mini_active = true;
+            }, 300);
+          }
+
+          // we simulate the window Resize so the charts will get updated in realtime.
+          var simulateWindowResize = setInterval(function() {
+            window.dispatchEvent(new Event('resize'));
+          }, 180);
+
+          // we stop the simulation of Window Resize after the animations are completed
+          setTimeout(function() {
+            clearInterval(simulateWindowResize);
+          }, 1000);
+
+        });
+      });
+    });
+  </script>
+  <script>
+    $(document).ready(function() {
+      // Javascript method's body can be found in assets/js/demos.js
+      md.initDashboardPageCharts();
+
+    });
+  </script>
+</body>
+
+</html>

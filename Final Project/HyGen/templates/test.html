@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=utf-8 />
+    <title>US Disasters Interactive Map</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.mapbox.com/mapbox.js/v3.2.0/mapbox.js'></script>
+    <link href='https://api.mapbox.com/mapbox.js/v3.2.0/mapbox.css' rel='stylesheet' />
+    <link rel="stylesheet" href="/static/css/animate.css">
+    <link rel="stylesheet" href="/static/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/static/css/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="/static/css/leaflet.css">
+
+    <link rel="stylesheet" href="/static/css/sidebar.css">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/fonts/ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="/static/fonts/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/fonts/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css">
+    <link rel="stylesheet" href="/static/css/bootstrap.css">
+    <style>
+      body { margin:0; padding:0; }
+      #map { position:absolute; top:0; bottom:0; width:100%; z-index: 0;}
+    .menu-ui {
+      background:#fff;
+      position:absolute;
+      top:165px;
+      right:10px;
+      z-index:1;
+      border-radius:3px;
+      width:120px;
+      border:1px solid rgba(0,0,0,0.4);
+      }
+    .menu-ui a {
+        font-size:13px;
+        color:#404040;
+        display:block;
+        margin:0;padding:0;
+        padding:10px;
+        text-decoration:none;
+        border-bottom:1px solid rgba(0,0,0,0.25);
+        text-align:center;
+    }
+    .menu-ui a:first-child {
+        border-radius:3px 3px 0 0;
+    }
+    .menu-ui a:last-child {
+        border:none;
+        border-radius:0 0 3px 3px;
+    }
+    .menu-ui a:hover {
+        background:#f8f8f8;
+        color:#404040;
+    }
+    .menu-ui a.active,
+    .menu-ui a.active:hover {
+        background:#3887BE;
+        color:#FFF;
+    }
+</style>
+</head>
+
+<body>
+<script src='https://code.jquery.com/jquery-1.11.0.min.js'></script>
+<header role="banner">
+<nav class="navbar navbar-expand-lg  bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand " href="/">Hygen</a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample05"
+      aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+
+    <div class="collapse navbar-collapse" id="navbarsExample05">
+      <ul class="navbar-nav pl-md-5 ml-auto">
+        <li class="nav-item">
+          <a class="nav-link active" href="/">Home</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">Services</a>
+          <div class="dropdown-menu" aria-labelledby="dropdown04">
+            <a class="dropdown-item" href="/map">충전소 입지</a>
+            <a class="dropdown-item" href="/analysis">분석 내용</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+</header>
+<nav class='menu-ui'>
+  <span class=''><a href='/map' data-filter='all'>현재 충전소</a></span>
+  <span class='active'><a href='/map2' data-filter='all'>2022</a></span>
+  <span class=''><a href='/map4' data-filter='all'>2024</a></span>
+  <span class=''><a href='/map6' data-filter='b'>2026</a></span>
+  <span class=''><a href='/map8' data-filter='c'>2028</a></span>
+  <span class=''><a href='/line22' data-filter='c'>2022년 노선</a></span>
+  <span class=''><a href='/line24' data-filter='c'>2024년 노선</a></span>
+  <span class=''><a href='/line26' data-filter='c'>2026년 노선</a></span>
+  <span class=''><a href='/line28' data-filter='c'>2028년 노선</a></span>
+  <span class=''><a href='/map_cho' data-filter='c'>동별 등급</a></span>
+</nav>
+<input type="checkbox" id='menuicon'>
+<label for="menuicon">
+    <div style="background: white; border-radius: 15px; width: 40px; height: 40px; padding: 5px">
+        <img src="/static/images/time.png" style='width: 30px; height:30px;'>
+    </div>
+</label>
+<div class="sidebar">
+    <iframe src="http://127.0.0.1:5000/cost22" style="z-index: 3; width: 100%; height: 100%; position: absolute;" ></iframe>
+</div>
+<input type="checkbox" id='menuicon2'>
+    <label for="menuicon2">
+        <div style="background: white; border-radius: 15px; width: 40px; height: 40px; padding: 5px">
+            <img src="/static/images/navi.png" style='width: 30px; height:30px;'>
+        </div>
+    </label>
+<div class="sidebar2">
+    <iframe src="https://map.kakao.com/link/search/" style="z-index: 3; width: 100%; height: 100%; position: absolute;" ></iframe>
+</div>
+<div id='map'></div>
+
+<script src='https://code.jquery.com/jquery-1.11.0.min.js'></script>
+<script>
+    L.mapbox.accessToken = 'pk.eyJ1Ijoic2V1bmdoYWsiLCJhIjoiY2p6cWdjZXp0MGx1aDNnb2JqbjlzODB3cSJ9.mPR84GeWleDZwHXpwyTmEw';
+    var map = L.mapbox.map('map')
+        .setView([37.5868961,126.973018], 11)
+        .addLayer(L.mapbox.styleLayer('mapbox://styles/mapbox/light-v10'));;
+    var geojson = {
+          type: 'FeatureCollection',
+
+          features: [
+              {% for i in result %}
+
+            {
+              "type": "Feature",
+              "geometry": {
+                "coordinates": [
+                    {{ i['y_cor'] }},
+                    {{ i['x_cor'] }}
+                ],
+                "type": "Point"
+              },
+              "properties": {
+                "title": "{{ i['name'] }}",
+                {#"rentals": true,#}
+                {#"tackleshop": false,#}
+                {#"fuel": false,#}
+                "marker-color": "#1087bf",
+                "marker-size": "large",
+                "marker-symbol": "fuel"
+              }
+            },
+              {% endfor %}
+          ],
+    };
+
+    var geojson2 = {
+      type: 'FeatureCollection',
+
+      features: [
+          {% for i in result2 %}
+
+        {
+          "type": "Feature",
+          "geometry": {
+            "coordinates": [
+                {{ i['y_cor'] }},
+                {{ i['x_cor'] }}
+            ],
+            "type": "Point"
+          },
+          "properties": {
+            "title": "{{ i['name'] }}",
+            {#"rentals": true,#}
+            {#"tackleshop": false,#}
+            {#"fuel": false,#}
+            "marker-color": "#231f41",
+            "marker-size": "large",
+            "marker-symbol": "bus"
+          }
+        },
+          {% endfor %}
+      ],
+{#    #1087bf    # }
+{#    #ff00ff  #}
+    };
+
+    var geojson3 = {
+        type: 'FeatureCollection',
+
+        features: [
+            {% for i in station %}
+
+                {
+                    "type": "Feature",
+                    "geometry": {
+                        "coordinates": [
+                            {{ i['y_cor'] }},
+                            {{ i['x_cor'] }}
+                        ],
+                        "type": "Point"
+                    },
+                    "properties": {
+                        "title": "{{ i['cs_name'] }}",
+                        {#"rentals": true,#}
+                        {#"tackleshop": false,#}
+                        {#"fuel": false,#}
+                        "marker-color": "#10ffbb",
+                        "marker-size": "large",
+                        "marker-symbol": "fuel"
+                    }
+                },
+            {% endfor %}
+        ],
+    }
+
+    var markers = L.mapbox.featureLayer()
+        .setGeoJSON(geojson)
+        .addTo(map);
+
+    var markers2 = L.mapbox.featureLayer()
+        .setGeoJSON(geojson2)
+        .addTo(map);
+
+    var markers3 = L.mapbox.featureLayer()
+        .setGeoJSON(geojson3)
+        .addTo(map);
+
+    var hues = [
+         '#41c6dd',
+          '#3cbadd',
+          '#26abdd',
+          '#1e8cdd',
+          '#0c6ddd',
+          '#0b64cb',
+          '#0a5ab6',
+          '#08519c'];
+    // The names of variables that we'll show in the UI for
+    // styling. These need to match exactly.
+
+    var variables = [
+       "2020_rate"];
+    // Collect the range of each variable over the full set, so
+    // we know what to color the brightest or darkest.
+
+    var ranges = {};
+    var $select = $('<select></select>')
+        .appendTo($('#variables'))
+        .on('change', function() {
+            setVariable($(this).val());
+        });
+    for (var i = 0; i < variables.length; i++) {
+        ranges[variables[i]] = { min: Infinity, max: -Infinity };
+        // Simultaneously, build the UI for selecting different
+        // ranges
+        $('<option></option>')
+            .text(variables[i])
+            .attr('value', variables[i])
+            .appendTo($select);
+    }
+    // Create a layer of state features, and when it's done
+    // loading, run loadData
+
+
+    var koreaLayer = L.mapbox.featureLayer()
+        .loadURL('https://raw.githubusercontent.com/jbh08/Hydrogen-Vehicle/master/프론트엔드/geoJson/new_dong.geojson')
+        .addTo(map)
+        .on('ready', loadData);
+
+
+    function loadData() {
+        $.getJSON('https://raw.githubusercontent.com/jbh08/Hydrogen-Vehicle/master/프론트엔드/data_22.json')
+            .done(function(data) {
+                joinData(data, koreaLayer);
+            });
+    }
+
+    function joinData(data, layer) {
+        // First, get the US state GeoJSON data for reference.
+        var koreaGeoJSON = koreaLayer.getGeoJSON(),
+            byState = {};
+
+
+        for (var i = 0; i < koreaGeoJSON.features.length; i++) {
+            byState[koreaGeoJSON.features[i].properties['adm_cd']] =
+                koreaGeoJSON.features[i];
+        }
+
+        for (i = 0; i < data.length; i++) {
+
+            byState[data[i]['amd_cd']].properties = data[i];
+            for (var j = 0; j < variables.length; j++) {
+
+                var n = variables[j];
+                ranges[n].min = Math.min(data[i][n], ranges[n].min);
+                ranges[n].max = Math.max(data[i][n], ranges[n].max);
+            }
+        }
+
+        var newFeatures = [];
+        for (i in byState) {
+            newFeatures.push(byState[i]);
+        }
+        koreaLayer.setGeoJSON(newFeatures);
+        // Kick off by filtering on an attribute.
+        setVariable(variables[0]);
+    }
+
+    function setVariable(name) {
+        var scale = ranges[name];
+        koreaLayer.eachLayer(function(layer) {
+
+            var division = Math.floor(
+                (hues.length - 1) *
+                ((layer.feature.properties[name] - scale.min) /
+                (scale.max - scale.min)));
+
+            layer.setStyle({
+                fillColor: hues[division],
+                fillOpacity: 0.6,
+                weight: 2
+            });
+            layer.on({
+                mousemove: mousemove,
+                mouseout: mouseout,
+                click: zoomToFeature
+            });
+        var closeTooltip;
+        function mousemove(e) {
+            var layer = e.target;
+            popup.setLatLng(e.latlng);
+            popup.setContent('<div class="marker-title">' + layer.feature.properties.name + '</div>' +
+                  layer.feature.properties[name] + '');
+
+            if (!popup._map) popup.openOn(map);
+            window.clearTimeout(closeTooltip);
+
+            if (!L.Browser.ie && !L.Browser.opera) {
+                layer.bringToFront();
+            }
+        }
+
+        function mouseout(e) {
+            //layer.resetStyle(e.target);
+            closeTooltip = window.setTimeout(function() {
+                map.closePopup();
+            }, 15000);
+        }
+        function zoomToFeature(e) {
+            map.fitBounds(e.target.getBounds());
+        }
+    });
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+/* 고정식 vs 이동식 가격비교 */
+input[id='menuicon']{
+  display: none;
+}
+input[id='menuicon'] + label{
+  display: block;
+  margin-left: 71px;
+  width: 40px;
+  height: 30px;
+  position: absolute;
+  top: 11.8%;
+  cursor: pointer;
+  z-index: 3;
+}
+div[class='sidebar']{
+  width: 435px;
+  height: 41%;
+  background: #222;
+  position: fixed;
+  top: 20%;
+  left: 0px;
+  z-index: 3;
+  transition: all .35s;
+}
+
+input[id='menuicon']:checked + label + div{
+  left: -435px;
+}
+
+/* 카카오 길찾기 */
+input[id='menuicon2']{
+  display: none;
+}
+input[id='menuicon2'] + label{
+  display: block;
+  margin: 23px;
+  width: 40px;
+  height: 30px;
+  position: absolute;
+  top: 9%;
+  cursor: pointer;
+  z-index: 3;
+  left: 0;
+}
+
+input[id='menuicon2']:checked + label + div{
+  left:0;
+}
+
+div[class='sidebar2']{
+  width: 394px;
+  height: 100%;
+  background: #222;
+  position: fixed;
+  top: 17%;
+  left: -394px;
+  z-index: 3;
+  transition: all .35s;
+}
+
+input[id='menuicon2']:checked + label + div{
+  left:0;
+}
