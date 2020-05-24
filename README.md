@@ -1,4 +1,3 @@
-주제: 이동식 수소 충전소를 활용한 최적의 인프라 추천 
+# optimal-infrastructure-recommendation-web-system-using-mobile-hydrogen-charging
 
-딥러닝 : 배승학, 정광은, 정지혁, 조경아, 하현종, 홍승혁
 
